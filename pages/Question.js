@@ -4,7 +4,18 @@ import Script from 'next/script'
 function Question() {
  const [input, setInput] = useState("")
  const [ques, setQues] = useState("")
- async function yess() {
+
+  return (
+    <>
+        <Script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></Script>
+    <Script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></Script>
+      <input value={input} className={css.input} onChange={(e)=>{setInput(e.target.value)}} type="text" />
+      <button onClick={yess} className={css.yes}>Yes</button>
+      <button onClick={noo} className={css.no}>No</button>
+      <h1 className={css.id}>{ques}</h1>
+    </>
+  )
+  function yess() {
     const firebaseConfig = {
      apiKey: "AIzaSyBvJ0C2HTqBeCbeUzlXHN0RKbu9yY0V6-I",
      authDomain: "yes-or-no-poll.firebaseapp.com",
@@ -23,7 +34,7 @@ function Question() {
    })
     setQues(`Your question id is: ${qid}`)
   }
-  async function noo() {
+  function noo() {
     const firebaseConfig = {
      apiKey: "AIzaSyBvJ0C2HTqBeCbeUzlXHN0RKbu9yY0V6-I",
      authDomain: "yes-or-no-poll.firebaseapp.com",
@@ -42,15 +53,5 @@ function Question() {
    })
     setQues(`Your question id is: ${qid}`)
   }
-  return (
-    <>
-        <Script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></Script>
-    <Script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></Script>
-      <input value={input} className={css.input} onChange={(e)=>{setInput(e.target.value)}} type="text" />
-      <button onClick={yess} className={css.yes}>Yes</button>
-      <button onClick={noo} className={css.no}>No</button>
-      <h1 className={css.id}>{ques}</h1>
-    </>
-  )
 }
 export default Question

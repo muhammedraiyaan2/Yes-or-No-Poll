@@ -8,7 +8,7 @@ function Navbar() {
        <ul className={csss.ul}>
         <li className={csss.brand}><Link href="/">Yes or No Poll</Link></li>
         <li className={csss.li}><Link href="/Question">Create your own question</Link></li>
-        <li className={csss.li}>Contact us</li>
+        <a href="https://muhammedraiyaan2.github.io/Profile" target="blank" className={csss.li}>Contact us</a>
        </ul>
       </nav>
     </>
